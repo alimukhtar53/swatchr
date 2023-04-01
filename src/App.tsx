@@ -1,7 +1,8 @@
 import { useState } from "react";
 import SvgData from "./components/SvgData";
-import { Box, Container, HStack, Input, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, HStack, Input, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
+import ColorInput from "./components/ColorInput";
 
 function App() {
   const [color, setColor] = useState("#FFFFFF");
@@ -12,21 +13,18 @@ function App() {
   return (
     <VStack className="container">
       <Container maxW="1200px">
-        <HStack>
+        <Flex justifyContent={"space-between"} alignItems={"center"}>
           <Box maxW={"512px"}>
             <SvgData color={color} width={512} height={512}></SvgData>
           </Box>
-          <Swatches />
-        </HStack>
-        <Input
-          width={"400px"}
-          height={"100px"}
-          border={"none"}
-          padding={0}
-          type="color"
-          value={color}
-          onChange={onColorChangeHandler}
-        ></Input>
+          <VStack>
+            <Swatches />
+            <ColorInput
+              color={color}
+              onColorChangeHandler={onColorChangeHandler}
+            />
+          </VStack>
+        </Flex>
       </Container>
     </VStack>
   );
