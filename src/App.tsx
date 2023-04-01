@@ -1,10 +1,10 @@
 import { useState } from "react";
 import SvgData from "./components/SvgData";
 import { Box, HStack, Text, Input, Grid } from "@chakra-ui/react";
-import colorPalette from "./services/color-palette";
+import Swatches from "./components/Swatches";
 
 function App() {
-  const [color, setColor] = useState("000000");
+  const [color, setColor] = useState("#FFFFFF");
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
@@ -12,17 +12,7 @@ function App() {
   return (
     <>
       <SvgData color={color} width={512} height={512}></SvgData>
-      <HStack>
-        <Text fontSize={"2xl"} pr={5}>
-          Colors:{" "}
-        </Text>
-
-        <Grid templateColumns={"repeat(5, 1fr)"} gap={6} maxW={"600px"}>
-          {colorPalette.map((color, index) => (
-            <Box key={index} bg={color} boxSize={"64px"}></Box>
-          ))}
-        </Grid>
-      </HStack>
+      <Swatches />
       <Input
         width={"400px"}
         height={"100px"}
