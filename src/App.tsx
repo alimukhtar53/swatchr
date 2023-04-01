@@ -1,21 +1,10 @@
 import { useState } from "react";
 import SvgData from "./components/SvgData";
 import { Box, HStack, Text, Input, Grid } from "@chakra-ui/react";
+import colorPalette from "./services/color-palette";
 
 function App() {
   const [color, setColor] = useState("000000");
-  const colorPalette = [
-    "#FAC8D8",
-    "#F8D5E2",
-    "#F5E1E6",
-    "#D8F3DC",
-    "#E4F1D4",
-    "#F4EBCF",
-    "#D6E4FF",
-    "#EAE6FF",
-    "#F9DCFF",
-    "#FFE2F1",
-  ];
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
