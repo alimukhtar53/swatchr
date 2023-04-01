@@ -7,7 +7,7 @@ import Size from "./components/Size";
 
 function App() {
   const [color, setColor] = useState("#FFFFFF");
-  const [size, setSize] = useState("512");
+  const [size, setSize] = useState(512);
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
@@ -16,7 +16,7 @@ function App() {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     const target = e.target as HTMLInputElement;
-    setSize(target.value);
+    setSize(parseInt(target.value));
   };
   return (
     <VStack className="container">
