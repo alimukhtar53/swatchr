@@ -1,4 +1,4 @@
-import { Input } from "@chakra-ui/react";
+import { Box, HStack, Input, Text } from "@chakra-ui/react";
 
 interface Props {
   color: string;
@@ -7,15 +7,20 @@ interface Props {
 
 const ColorInput = ({ color, onColorChangeHandler }: Props) => {
   return (
-    <Input
-      width={"64px"}
-      height={"32px"}
-      border={"none"}
-      padding={0}
-      type="color"
-      value={color}
-      onChange={onColorChangeHandler}
-    ></Input>
+    <Box width={"full"}>
+      <Text fontSize={"2xl"} pb={3}>
+        Change color:
+      </Text>
+      <Input
+        width={"full"}
+        height={12}
+        border={`1px solid ${color}`}
+        padding={1}
+        type="color"
+        value={color}
+        onChange={onColorChangeHandler}
+      />
+    </Box>
   );
 };
 

@@ -3,8 +3,8 @@ import colorPalette from "../services/color-palette";
 
 function Swatches() {
   return (
-    <HStack>
-      <Text fontSize={"2xl"} pr={5}>
+    <div>
+      <Text textAlign={"left"} fontSize={"2xl"} pb={3}>
         Colors:{" "}
       </Text>
 
@@ -13,7 +13,7 @@ function Swatches() {
           <Box key={index} bg={color} boxSize={"64px"}></Box>
         ))}
       </Grid>
-    </HStack>
+    </div>
   );
 }
 
