@@ -14,7 +14,7 @@ const ColorInput = ({ color, onColorChangeHandler }: Props) => {
       <Input
         width={"full"}
         height={12}
-        border={`1px solid ${color}`}
+        border={`1px dashed ${color}`}
         padding={1}
         type="color"
         value={color}
