@@ -8,7 +8,7 @@ interface Props {
 const ColorInput = ({ color, onColorChangeHandler }: Props) => {
   return (
     <div>
-      <Text fontSize={"2xl"} pb={3}>
+      <Text fontSize={"xl"} pb={3} fontWeight={"bold"} textColor={"gray.700"}>
         Change color:
       </Text>
       <Input

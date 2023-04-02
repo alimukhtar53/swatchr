@@ -12,7 +12,13 @@ interface Props {
 function Swatches({ activeColor, colorPalette, onColorPaletteClick }: Props) {
   return (
     <div>
-      <Text textAlign={"left"} fontSize={"2xl"} pb={3}>
+      <Text
+        textAlign={"left"}
+        fontSize={"xl"}
+        pb={3}
+        fontWeight={"bold"}
+        textColor={"gray.700"}
+      >
         Colors:{" "}
       </Text>
 
