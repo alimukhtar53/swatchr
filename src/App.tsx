@@ -1,9 +1,10 @@
 import { useState } from "react";
 import SvgData from "./components/SvgData";
-import { Box, Container, Flex, HStack, Input, VStack } from "@chakra-ui/react";
+import { Container, Flex, HStack, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
 import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";
+import colorPalette from "./services/color-palette";
 
 function App() {
   const [color, setColor] = useState("#FFFFFF");
@@ -17,6 +18,14 @@ function App() {
   ) => {
     const target = e.target as HTMLInputElement;
     setSize(parseInt(target.value));
+  };
+
+  // on color palette click
+  const onColorPaletteClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    color: string
+  ) => {
+    setColor(color);
   };
   return (
     <VStack className="container">
@@ -32,7 +41,10 @@ function App() {
           </HStack>
           <VStack gap={8}>
             <Size onSizeSelect={onSizeSelectHandler} />
-            <Swatches />
+            <Swatches
+              colorPalette={colorPalette}
+              onColorPaletteClick={onColorPaletteClick}
+            />
             <ColorInput
               color={color}
               onColorChangeHandler={onColorChangeHandler}
