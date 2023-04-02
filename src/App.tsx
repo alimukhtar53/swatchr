@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
-  const [size, setSize] = useState(512);
+  const [size, setSize] = useState(256);
   const [activeColor, setActiveColor] = useState("");
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,6 +43,7 @@ function App() {
             justifyContent={"center"}
             alignItems={"center"}
             margin={"auto"}
+            padding={8}
           >
             <SvgData color={color} width={size} height={size} />
           </Flex>
