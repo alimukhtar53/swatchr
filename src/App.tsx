@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SvgData from "./components/SvgData";
 import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
 import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";
 import colorPalette from "./services/color-palette";
+import HeroHeadline from "./components/HeroHeadline";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
   const [size, setSize] = useState(512);
+  const [activeColor, setActiveColor] = useState("");
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
@@ -26,11 +28,13 @@ function App() {
     color: string
   ) => {
     setColor(color);
+    setActiveColor(color);
   };
   return (
     <VStack className="container">
       <Container maxW="1200px">
-        <Box alignItems={"center"}>
+        <Box alignItems={"center"} mt={8}>
+          <HeroHeadline />
           <Flex
             maxW={"512px"}
             height={"512px"}
@@ -43,6 +47,7 @@ function App() {
           <Flex w={"md"} gap={5} flexDirection={"column"} margin={"auto"}>
             <Size onSizeSelect={onSizeSelectHandler} />
             <Swatches
+              activeColor={activeColor}
               colorPalette={colorPalette}
               onColorPaletteClick={onColorPaletteClick}
             />

@@ -1,6 +1,7 @@
 import { Text, Grid, Box } from "@chakra-ui/react";
 
 interface Props {
+  activeColor: string;
   colorPalette: string[];
   onColorPaletteClick?: (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -8,7 +9,7 @@ interface Props {
   ) => void;
 }
 
-function Swatches({ colorPalette, onColorPaletteClick }: Props) {
+function Swatches({ activeColor, colorPalette, onColorPaletteClick }: Props) {
   return (
     <div>
       <Text textAlign={"left"} fontSize={"2xl"} pb={3}>
@@ -21,10 +22,13 @@ function Swatches({ colorPalette, onColorPaletteClick }: Props) {
             key={index}
             bg={color}
             boxSize={"64px"}
+            outline={`${activeColor === color && "2px dashed #557593"}`}
+            outlineOffset={2}
+            borderColor={color}
             onClick={(e) =>
               onColorPaletteClick && onColorPaletteClick(e, color)
             }
-          ></Box>
+          />
         ))}
       </Grid>
     </div>
