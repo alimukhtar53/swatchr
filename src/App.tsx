@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SvgData from "./components/SvgData";
 import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";

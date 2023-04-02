@@ -1,4 +1,4 @@
-import { Box, HStack, Input, Text } from "@chakra-ui/react";
+import { Input, Text } from "@chakra-ui/react";
 
 interface Props {
   color: string;
