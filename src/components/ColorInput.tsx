@@ -7,7 +7,7 @@ interface Props {
 
 const ColorInput = ({ color, onColorChangeHandler }: Props) => {
   return (
-    <Box width={"full"}>
+    <div>
       <Text fontSize={"2xl"} pb={3}>
         Change color:
       </Text>
@@ -20,7 +20,7 @@ const ColorInput = ({ color, onColorChangeHandler }: Props) => {
         value={color}
         onChange={onColorChangeHandler}
       />
-    </Box>
+    </div>
   );
 };
 

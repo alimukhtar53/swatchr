@@ -1,13 +1,13 @@
 import { useState } from "react";
 import SvgData from "./components/SvgData";
-import { Container, Flex, HStack, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
 import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";
 import colorPalette from "./services/color-palette";
 
 function App() {
-  const [color, setColor] = useState("#FFFFFF");
+  const [color, setColor] = useState("#FAC8D8");
   const [size, setSize] = useState(512);
 
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,16 +30,17 @@ function App() {
   return (
     <VStack className="container">
       <Container maxW="1200px">
-        <Flex justifyContent={"space-between"} alignItems={"center"}>
-          <HStack
+        <Box alignItems={"center"}>
+          <Flex
             maxW={"512px"}
-            minW={"512px"}
+            height={"512px"}
             justifyContent={"center"}
             alignItems={"center"}
+            margin={"auto"}
           >
-            <SvgData color={color} width={size} height={size}></SvgData>
-          </HStack>
-          <VStack gap={8}>
+            <SvgData color={color} width={size} height={size} />
+          </Flex>
+          <Flex w={"md"} gap={5} flexDirection={"column"} margin={"auto"}>
             <Size onSizeSelect={onSizeSelectHandler} />
             <Swatches
               colorPalette={colorPalette}
@@ -49,8 +50,8 @@ function App() {
               color={color}
               onColorChangeHandler={onColorChangeHandler}
             />
-          </VStack>
-        </Flex>
+          </Flex>
+        </Box>
       </Container>
     </VStack>
   );

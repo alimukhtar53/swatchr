@@ -6,7 +6,7 @@ interface Props {
 
 const Size = ({ onSizeSelect }: Props) => {
   return (
-    <Box width={"full"}>
+    <div>
       <Text textAlign={"left"} fontSize={"2xl"} pb={3}>
         Size:
       </Text>
@@ -23,7 +23,7 @@ const Size = ({ onSizeSelect }: Props) => {
           </Radio>
         </Stack>
       </RadioGroup>
-    </Box>
+    </div>
   );
 };
 
