@@ -35,7 +35,7 @@ function App() {
     <VStack className="container">
       <NavBar />
       <Container maxW="1200px">
-        <Box alignItems={"center"} mt={4}>
+        <Box alignItems={"center"} my={8}>
           <HeroHeadline />
           <Flex
             maxW={"512px"}
