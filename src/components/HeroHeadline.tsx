@@ -3,7 +3,13 @@ import Balancer from "react-wrap-balancer";
 
 const HeroHeadline = () => {
   return (
-    <Heading textAlign={"center"} as="h1" size="xl" fontWeight={"black"}>
+    <Heading
+      textAlign={"center"}
+      as="h1"
+      size="xl"
+      fontWeight={"black"}
+      textColor={"gray.800"}
+    >
       <Balancer>
         Bring some pizzazz🍕 to your app with Swatchr's interactive SVG coloring
       </Balancer>

@@ -6,6 +6,7 @@ import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";
 import colorPalette from "./services/color-palette";
 import HeroHeadline from "./components/HeroHeadline";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
@@ -32,8 +33,9 @@ function App() {
   };
   return (
     <VStack className="container">
+      <NavBar />
       <Container maxW="1200px">
-        <Box alignItems={"center"} mt={8}>
+        <Box alignItems={"center"} mt={4}>
           <HeroHeadline />
           <Flex
             maxW={"512px"}
