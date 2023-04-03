@@ -7,15 +7,26 @@ import Size from "./components/Size";
 import colorPalette from "./services/color-palette";
 import HeroHeadline from "./components/HeroHeadline";
 import NavBar from "./components/NavBar";
+import defaultSvg from "./services/default-svg";
+import SvgInput from "./components/SvgInput";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
   const [size, setSize] = useState(256);
   const [activeColor, setActiveColor] = useState("");
+  const [svgData, setSvgData] = useState(defaultSvg);
 
+  // on input change
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSvgData(e.target.value);
+  };
+
+  // on input color change
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
   };
+
+  // on size change
   const onSizeSelectHandler = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -23,7 +34,7 @@ function App() {
     setSize(parseInt(target.value));
   };
 
-  // on color palette click
+  // on color palette change
   const onColorPaletteClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
     color: string
@@ -37,17 +48,24 @@ function App() {
       <Container maxW="1200px">
         <Box alignItems={"center"} my={8}>
           <HeroHeadline />
-          <Flex
-            maxW={"512px"}
-            height={"512px"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            margin={"auto"}
-            padding={8}
-          >
-            <SvgData color={color} width={size} height={size} />
-          </Flex>
+          <Box mx={"auto"} my={8}>
+            <Flex
+              maxW={"512px"}
+              height={"512px"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              margin={"auto"}
+            >
+              <SvgData
+                color={color}
+                width={size}
+                height={size}
+                svgCode={svgData}
+              />
+            </Flex>
+          </Box>
           <Flex w={"md"} gap={5} flexDirection={"column"} margin={"auto"}>
+            <SvgInput svgData={svgData} onChange={onInputChange} />
             <Size onSizeSelect={onSizeSelectHandler} />
             <Swatches
               activeColor={activeColor}
