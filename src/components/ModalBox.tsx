@@ -39,8 +39,13 @@ function ModalBox({ svgCode }: Props) {
         isOpen={isOpen}
         isCentered
         motionPreset="slideInBottom"
+        size={"5xl"}
       >
-        <ModalOverlay />
+        <ModalOverlay
+          bg="blackAlpha.800"
+          backdropFilter="auto"
+          backdropBlur="20px"
+        />
         <ModalContent>
           <ModalHeader>SVG Code:</ModalHeader>
           <ModalCloseButton />
