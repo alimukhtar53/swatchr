@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SvgData from "./components/SvgData";
-import { Box, Container, Flex, VStack } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
 import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";
@@ -9,12 +9,21 @@ import HeroHeadline from "./components/HeroHeadline";
 import NavBar from "./components/NavBar";
 import defaultSvg from "./services/default-svg";
 import SvgInput from "./components/SvgInput";
+import ModalBox from "./components/ModalBox";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
   const [size, setSize] = useState(256);
   const [activeColor, setActiveColor] = useState("");
   const [svgData, setSvgData] = useState(defaultSvg);
+  const svgRef = useRef(null);
+
+  useEffect(() => {
+    if (svgRef.current) {
+      const svgCode = svgRef.current.innerHTML;
+      setSvgData(svgCode);
+    }
+  }, [size, svgData]);
 
   // on input change
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +40,11 @@ function App() {
     e: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     const target = e.target as HTMLInputElement;
-    setSize(parseInt(target.value));
+    const value = Number(target.value);
+    if (!isNaN(value)) {
+      console.log(value); // 32
+      setSize(value);
+    }
   };
 
   // on color palette change
@@ -61,6 +74,7 @@ function App() {
                 width={size}
                 height={size}
                 svgCode={svgData}
+                svgRef={svgRef}
               />
             </Flex>
           </Box>
@@ -76,6 +90,7 @@ function App() {
               color={color}
               onColorChangeHandler={onColorChangeHandler}
             />
+            <ModalBox svgCode={svgRef?.current?.innerHTML} />
           </Flex>
         </Box>
       </Container>
