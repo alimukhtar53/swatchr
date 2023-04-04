@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Modal,
   ModalBody,
@@ -20,9 +21,19 @@ function ModalBox({ svgCode }: Props) {
 
   return (
     <>
-      <Button colorScheme={"facebook"} onClick={onOpen}>
+      <Box
+        as="button"
+        onClick={onOpen}
+        disabled={!svgCode && true}
+        bg="facebook.500"
+        rounded={"md"}
+        textColor={"white"}
+        lineHeight={"10"}
+        transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
+        _hover={{ bg: "facebook.800" }}
+      >
         Copy code {`</>`}
-      </Button>
+      </Box>
       <Modal
         onClose={onClose}
         isOpen={isOpen}
