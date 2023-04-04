@@ -23,7 +23,7 @@ function App() {
       const svgCode = svgRef.current.innerHTML;
       setSvgData(svgCode);
     }
-  }, [size, svgData]);
+  }, [size, svgData, color]);
 
   // on input change
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

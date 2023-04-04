@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import {
   Box,
   Button,
@@ -18,6 +19,17 @@ interface Props {
 
 function ModalBox({ svgCode }: Props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isCopied, setIsCopied] = useState(false);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleCopy = () => {
+    if (textareaRef.current) {
+      textareaRef.current.select();
+      document.execCommand("copy");
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 3000);
+    }
+  };
 
   return (
     <>
@@ -59,10 +71,20 @@ function ModalBox({ svgCode }: Props) {
               padding={3}
               bgColor={"gray.100"}
               w={"full"}
+              ref={textareaRef}
             ></Textarea>
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
+          <ModalFooter gap={3}>
+            <Button
+              colorScheme="facebook"
+              onClick={handleCopy}
+              disabled={!svgCode && true}
+            >
+              {isCopied ? "Copied!" : "Copy"}
+            </Button>
+            <Button colorScheme="red" onClick={onClose}>
+              Close
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
