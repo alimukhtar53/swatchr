@@ -41,6 +41,7 @@ function Swatches({ activeColor, colorPalette, onColorPaletteClick }: Props) {
             outline={`${activeColor === color && "2px dashed #557593"}`}
             outlineOffset={4}
             borderColor={color}
+            cursor={"pointer"}
             onClick={(e) =>
               onColorPaletteClick && onColorPaletteClick(e, color)
             }

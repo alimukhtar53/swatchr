@@ -18,6 +18,7 @@ const ColorInput = ({ color, onColorChangeHandler }: Props) => {
         padding={1}
         type="color"
         value={color}
+        cursor={"pointer"}
         onChange={onColorChangeHandler}
       />
     </div>
