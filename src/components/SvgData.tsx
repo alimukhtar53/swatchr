@@ -1,9 +1,11 @@
+import { MutableRefObject } from "react";
+
 interface Props {
   color?: string;
   width?: number;
   height?: number;
   svgCode: string;
-  svgRef: React.MutableRefObject<null>;
+  svgRef: MutableRefObject<SVGSVGElement | null>;
 }
 function SvgData({ color, width, height, svgCode, svgRef }: Props) {
   const modifiedSvgCode = svgCode
@@ -13,7 +15,7 @@ function SvgData({ color, width, height, svgCode, svgRef }: Props) {
   return (
     <div
       id="this one wants to pick"
-      ref={svgRef}
+      ref={svgRef as React.RefObject<HTMLDivElement>}
       dangerouslySetInnerHTML={{ __html: modifiedSvgCode }}
     />
   );

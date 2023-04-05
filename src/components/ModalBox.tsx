@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 
 interface Props {
-  svgCode: string;
+  svgCode?: string;
 }
 
 function ModalBox({ svgCode }: Props) {

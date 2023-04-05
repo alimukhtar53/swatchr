@@ -39,7 +39,7 @@ const HeroHeadline = () => {
             Bring some pizzazz{" "}
             <motion.div
               style={{ display: "inline-block" }}
-              animate={animatePizza ? { x: 340, y: 45, rotate: 45 } : {}}
+              animate={animatePizza ? { x: 0, y: 0, rotate: 90 } : {}}
             >
               <motion.button
                 style={{ display: "inline-block" }}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import SvgData from "./components/SvgData";
 import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
@@ -17,7 +17,7 @@ function App() {
   const [size, setSize] = useState(256);
   const [activeColor, setActiveColor] = useState("");
   const [svgData, setSvgData] = useState(defaultSvg);
-  const svgRef = useRef(null);
+  const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
     if (svgRef.current) {
