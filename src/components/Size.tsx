@@ -1,4 +1,4 @@
-import { Box, HStack, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
+import { Box, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 
 interface Props {
   onSizeSelect: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

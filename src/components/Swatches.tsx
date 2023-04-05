@@ -1,4 +1,4 @@
-import { Text, Grid, Box, SimpleGrid } from "@chakra-ui/react";
+import { Text, Box, SimpleGrid } from "@chakra-ui/react";
 
 interface Props {
   activeColor: string;

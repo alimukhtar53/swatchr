@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import SvgData from "./components/SvgData";
-import { Box, Button, Container, Flex, VStack } from "@chakra-ui/react";
+import { Box, Container, Flex, VStack } from "@chakra-ui/react";
 import Swatches from "./components/Swatches";
 import ColorInput from "./components/ColorInput";
 import Size from "./components/Size";

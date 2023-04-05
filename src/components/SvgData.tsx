@@ -1,4 +1,3 @@
-import { ForwardedRef, useEffect } from "react";
 interface Props {
   color?: string;
   width?: number;
