@@ -57,7 +57,7 @@ function App() {
     setActiveColor(color);
   };
   return (
-    <VStack className="container">
+    <VStack className="container" bgGradient="linear(to-t,  white, blue.50,)">
       <NavBar />
       <Container maxW="1200px">
         <Box alignItems={"center"} my={8}>
