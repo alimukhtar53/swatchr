@@ -1,4 +1,4 @@
-import { Box, Container, Image, HStack, Heading } from "@chakra-ui/react";
+import { Box, Container, Image, HStack, Heading, Link } from "@chakra-ui/react";
 import logo from "../assets/paint-swatch.png";
 
 export const NavBar = () => {
@@ -21,7 +21,12 @@ export const NavBar = () => {
               borderBottom={"2px dashed wheat"}
               textColor={"wheat"}
             >
-              Swatchr
+              <Link
+                href="/"
+                _hover={{ textDecoration: "none", textColor: "coral" }}
+              >
+                Swatchr
+              </Link>
             </Heading>
           </HStack>
         </Container>

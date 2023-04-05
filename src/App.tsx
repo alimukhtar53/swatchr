@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar";
 import defaultSvg from "./services/default-svg";
 import SvgInput from "./components/SvgInput";
 import ModalBox from "./components/ModalBox";
+import Footer from "./components/Footer";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
@@ -103,6 +104,7 @@ function App() {
           </Flex>
         </Box>
       </Container>
+      <Footer></Footer>
     </VStack>
   );
 }
