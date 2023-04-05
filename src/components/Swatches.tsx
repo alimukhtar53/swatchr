@@ -1,4 +1,4 @@
-import { Text, Grid, Box } from "@chakra-ui/react";
+import { Text, Grid, Box, SimpleGrid } from "@chakra-ui/react";
 
 interface Props {
   activeColor: string;
@@ -22,21 +22,31 @@ function Swatches({ activeColor, colorPalette, onColorPaletteClick }: Props) {
         Colors:{" "}
       </Text>
 
-      <Grid templateColumns={"repeat(5, 1fr)"} gap={6} maxW={"600px"}>
+      <SimpleGrid
+        minChildWidth={"60px"}
+        gap={{
+          base: "2",
+          md: "4",
+          lg: "6",
+        }}
+        maxW={"600px"}
+      >
         {colorPalette.map((color, index) => (
           <Box
             key={index}
             bg={color}
+            borderRadius={"full"}
+            shadow={"md"}
             boxSize={"64px"}
             outline={`${activeColor === color && "2px dashed #557593"}`}
-            outlineOffset={2}
+            outlineOffset={4}
             borderColor={color}
             onClick={(e) =>
               onColorPaletteClick && onColorPaletteClick(e, color)
             }
           />
         ))}
-      </Grid>
+      </SimpleGrid>
     </div>
   );
 }

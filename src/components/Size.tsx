@@ -1,4 +1,4 @@
-import { Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
+import { Box, HStack, Radio, RadioGroup, Stack, Text } from "@chakra-ui/react";
 
 interface Props {
   onSizeSelect: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
@@ -7,18 +7,24 @@ interface Props {
 const Size = ({ onSizeSelect }: Props) => {
   const size = "lg";
   return (
-    <div>
-      <Text
-        textAlign={"left"}
-        fontSize={"xl"}
-        pb={3}
-        fontWeight={"bold"}
-        textColor={"gray.700"}
-      >
-        Size:
-      </Text>
+    <Stack
+      direction={["column", "row", "row"]}
+      alignItems={["flex-start", "center"]}
+      spacing={[4, 0]}
+      wrap="wrap"
+    >
+      <Box width={"full"}>
+        <Text
+          fontSize={["xl"]}
+          pb={3}
+          fontWeight={"bold"}
+          textColor={"gray.700"}
+        >
+          Size:
+        </Text>
+      </Box>
       <RadioGroup>
-        <Stack direction="row" gap={2} onClick={onSizeSelect}>
+        <Stack direction={["column", "row"]} gap={2} onClick={onSizeSelect}>
           <Radio value="32" size={size}>
             32
           </Radio>
@@ -36,7 +42,7 @@ const Size = ({ onSizeSelect }: Props) => {
           </Radio>
         </Stack>
       </RadioGroup>
-    </div>
+    </Stack>
   );
 };
 

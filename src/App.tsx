@@ -78,7 +78,16 @@ function App() {
               />
             </Flex>
           </Box>
-          <Flex w={"md"} gap={5} flexDirection={"column"} margin={"auto"}>
+          <Flex
+            w={{
+              base: "80vw",
+              md: "md",
+              lg: "md",
+            }}
+            gap={5}
+            flexDirection={"column"}
+            margin={"auto"}
+          >
             <SvgInput svgData={svgData} onChange={onInputChange} />
             <Size onSizeSelect={onSizeSelectHandler} />
             <Swatches
