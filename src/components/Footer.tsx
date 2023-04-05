@@ -18,7 +18,7 @@ const Footer = () => {
     <Box
       as="footer"
       role="contentinfo"
-      py={{ base: "0", md: "2" }}
+      py={{ base: "4", md: "2" }}
       bg="bg-surface"
       boxShadow="md"
       width={"full"}
@@ -27,19 +27,6 @@ const Footer = () => {
       <Container py={{ base: "4", lg: "5" }} maxW="1200px">
         <Stack spacing={{ base: "4", md: "5" }}>
           <Stack justify="space-between" direction="row" align="center">
-            <Heading
-              fontSize={"2xl"}
-              fontWeight={"black"}
-              textColor={"gray.500"}
-              _hover={{ textColor: "twitter.500" }}
-            >
-              <Link
-                href="/"
-                _hover={{ textDecoration: "none", textColor: "coral" }}
-              >
-                Swatchr
-              </Link>
-            </Heading>
             <HStack justifyContent={"center"} alignItems={"baseline"}>
               <Text fontSize="sm" textColor={"gray.500"}>
                 Made with &nbsp;
@@ -54,6 +41,7 @@ const Footer = () => {
             <ButtonGroup variant="ghost">
               <IconButton
                 as="a"
+                target="_blank"
                 href="https://www.linkedin.com/in/ali-mukhtar-3082518b/"
                 aria-label="LinkedIn"
                 colorScheme={"twitter"}
@@ -61,6 +49,7 @@ const Footer = () => {
               />
               <IconButton
                 as="a"
+                target="_blank"
                 href="https://github.com/alimukhtar53"
                 aria-label="GitHub"
                 colorScheme={"twitter"}
@@ -68,6 +57,7 @@ const Footer = () => {
               />
               <IconButton
                 as="a"
+                target="_blank"
                 href="https://twitter.com/alee_hun_yar"
                 aria-label="Twitter"
                 colorScheme={"twitter"}
