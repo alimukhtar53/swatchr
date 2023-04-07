@@ -11,6 +11,7 @@ import defaultSvg from "./services/default-svg";
 import SvgInput from "./components/SvgInput";
 import ModalBox from "./components/ModalBox";
 import Footer from "./components/Footer";
+import { debounce } from "lodash";
 
 function App() {
   const [color, setColor] = useState("#FAC8D8");
@@ -24,16 +25,24 @@ function App() {
       const svgCode = svgRef.current.innerHTML;
       setSvgData(svgCode);
     }
-  }, [size, svgData, color]);
+  }, [svgRef, setSvgData, size, svgData, color]);
 
   // on input change
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSvgData(e.target.value);
   };
 
-  // on input color change
+  // debounce effect for performance optimization
+  const debouncedColorChangeHandler = debounce(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setColor(e.target.value);
+    },
+    100,
+    { leading: true, trailing: false }
+  );
+
   const onColorChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setColor(e.target.value);
+    debouncedColorChangeHandler(e);
   };
 
   // on size change
@@ -43,7 +52,6 @@ function App() {
     const target = e.target as HTMLInputElement;
     const value = Number(target.value);
     if (!isNaN(value)) {
-      console.log(value); // 32
       setSize(value);
     }
   };

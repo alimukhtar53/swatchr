@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import { Input, Text } from "@chakra-ui/react";
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 const ColorInput = ({ color, onColorChangeHandler }: Props) => {
+  const memoizedHandler = useCallback(onColorChangeHandler, []);
+
   return (
     <div>
       <Text fontSize={"xl"} pb={3} fontWeight={"bold"} textColor={"gray.700"}>
@@ -19,7 +22,7 @@ const ColorInput = ({ color, onColorChangeHandler }: Props) => {
         type="color"
         value={color}
         cursor={"pointer"}
-        onChange={onColorChangeHandler}
+        onChange={memoizedHandler}
       />
     </div>
   );
